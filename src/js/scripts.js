@@ -20,13 +20,15 @@ de lo siguiente:
 Al final deberá mostrar los datos del alumno, nombre, carnet y nota final.
 */
 function promedioNotas(){
-    const validacion_nombre = /^[A-Za-z\s]+$/;
+    const validacion_nombre = /^[A-Za-z\s]+$/; //expresion regular para validar que el nombre sea tipo string
+    //Recuperacion de datos
     let nombre = document.getElementById('id_nombre').value;
     let carnet = document.getElementById('id_carnet').value;
     let examen = parseFloat(document.getElementById('id_examen').value);
     let tareas = parseFloat(document.getElementById('id_tareas').value);
     let asistencia = parseFloat(document.getElementById('id_asistencia').value);
     let investigacion = parseFloat(document.getElementById('id_investigacion').value);
+    //Validaciondes de entrada de datos
     if(nombre.trim() === '' || !validacion_nombre.test(nombre)){
         alert('Ingresa un nombre valido');
         return;
@@ -51,6 +53,7 @@ function promedioNotas(){
         alert('Ingresa una nota valida');
         return ;
     }
+    //Proceso
     let promedio = (examen*0.2) + (tareas*0.4) + (asistencia*0.1) + (investigacion*0.3);
     alert(`Alumno ${nombre}\nCon No. de carnet ${carnet}\nSu nota Final es ${promedio}`);
 }
@@ -68,11 +71,13 @@ aumento. Deberá demostrar los datos del empleado y el aumento salarial.
 */
 
 function calcularAumento(){
+    //Recuperacion de datos
     let nombre = document.getElementById('id_nombre').value;
     let salario = parseFloat(document.getElementById('id_salario').value);
     let categoría = document.getElementById('id_categoria').value;
     let aumentoC = 0;
     let aumentoR = 0;
+    //Validacion de datos de entrada
     if(nombre.trim() === ''){
         alert('Ingresa un nombre valido');
         return;
@@ -85,6 +90,7 @@ function calcularAumento(){
         alert('Ingresa una categoria valida');
         return;
     }
+    //Logica
     switch(categoría){
         case 'A':
             aumentoC = salario * 0.15;    
@@ -115,12 +121,15 @@ calcular cual número es el mayor y devolverlo.
 */
 
 function compararNumeros(){
+    //Recuperacion de datos
     let num1 = parseInt(document.getElementById('id_num_uno').value);
     let num2 = parseInt(document.getElementById('id_num_dos').value);
+    //Validacion de datos de entrada
     if(isNaN(num1) || isNaN(num2)){
         alert('Ingresa dos numeros validos');
         return;
     }
+    //Logica
     let mayor = num1 > num2? num1 : num2;
     alert(`El numero mayor es ${mayor}`);
 }
@@ -133,14 +142,15 @@ el descuento será del 20%. Mostrar en html el coche seleccionado y el descuento
 aplicara en base a lo que selecciono el usuario.
 */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {//aseguramos que primero cargue DOM y luego las funciones
     document.getElementById('id_categoria').addEventListener('change', labelDescuento);
 
     function labelDescuento() {
+        //Recuperacion de datos
         const categoría_label = document.getElementById('id_categoria').value;
         const descuento_label = document.getElementById('descuentos');
         let descuentoTexto = '';
-
+        //Logica label
         switch(categoría_label) {
             case 'FORD FIESTA':
                 descuentoTexto = '5% de descuento';
@@ -154,20 +164,22 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 descuentoTexto = 'Selecciona una categoría para ver el descuento';
         }
-
+        //Salida Label
         descuento_label.textContent = descuentoTexto;
     }
 
     window.calcularPrecio = function() {
+        //Recuperacion de datos
         let precio = parseFloat(document.getElementById('id_precio').value);
         let categoría = document.getElementById('id_categoria').value;
         let descuento = 0;
         let precioFinal = 0;
-
+        //Validaciones de entrada de datos
         if (isNaN(precio) || precio <= 0) { 
             alert('Ingresa un precio válido');
             return;
         }
+        //Logica
         switch(categoría) {
             case 'FORD FIESTA':
                 descuento = precio * 0.05;
@@ -200,10 +212,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('id_destino').addEventListener('change', labelDestino);
 
     function labelDestino() {
+        //Recuperacion de datos
         const categoría_select = document.getElementById('id_destino').value;
         const descuento_label = document.getElementById('descuentos_d');
         let descuentoTexto = '';
-
+        //Logica label
         switch(categoría_select) {
             case 'COSTA DEL SOL':
                 descuentoTexto = '5% de descuento';
@@ -217,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 descuentoTexto = 'Selecciona una categoría para ver el descuento';
         }
-
+        //Salida label
         descuento_label.textContent = descuentoTexto;
     }
 });
@@ -232,6 +245,7 @@ Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
 */
 
 function validarNumeros() {
+    //Recuperacion de datos
     const num = document.getElementById('id_numeros').value;
     const numeros = num.split(',').map(num => parseInt(num.trim(), 10));
     let negativos = 0;
@@ -239,11 +253,12 @@ function validarNumeros() {
     let multiplos = 0;
     let sumaPares = 0;
 
+    //Validaciones de entrada de datos
     if (numeros.length !== 10) {
         alert('Por favor, ingrese exactamente 10 números.');
         return;
     }
-
+    //Logica
     for (const numero of numeros) {
         if (numero < 0) {
             negativos++;
@@ -269,12 +284,15 @@ por el usuario.
 */
 
 function tablaNum(){
+    //Recuperacion de datos
     let num = parseInt(document.getElementById('id_num').value);
     let result = '';
+    //Validaciones de entrada de datos
     if (isNaN(num) || num <= 0) {
         alert('Ingresa un número entero positivo.');
         return;
     }
+    //Logica
     for (let i = 1; i <= 10; i++) {
         result += `${num} x ${i} = ${num * i}\n`;
     }
@@ -293,12 +311,15 @@ Fahrenheit, una vez teniendo la temperatura en Fahrenheit deberá devolver lo si
 */
 
 function validartemperatura() {
+    //Recuperacion de datos
     let celsius = parseFloat(document.getElementById('id_celsius').value);
     let mensaje;
+    //Validaciones de entrada de datos
     if (isNaN(celsius)) {
         alert('Ingrese una Temperatura válida');
         return;
     }
+    //Logica
     let fahrenheit = (celsius * 9/5) + 32;
     if (fahrenheit >= 14 && fahrenheit < 32) {
         mensaje = "Temperatura baja";
@@ -328,15 +349,16 @@ promedio de edades mayor.
 
 function validarEdades() {
     let mensaje;
+    //Recuperacion de datos
     let edadesManana = document.getElementById('id_edades_manana').value.split(',').map(Number);
     let edadesTarde = document.getElementById('id_edades_tarde').value.split(',').map(Number);
     let edadesNoche = document.getElementById('id_edades_noche').value.split(',').map(Number);
-    
+    //Validacion de datos de entrada
     if (edadesManana.length !== 5 || edadesTarde.length !== 6 || edadesNoche.length !== 11) {
         alert('Ingrese la cantidad solicitada de edades para cada turno');
         return;
     }
-    
+    //Logica
     let promedioManana = calcularPromedio(edadesManana);
     let promedioTarde = calcularPromedio(edadesTarde);
     let promedioNoche = calcularPromedio(edadesNoche);
