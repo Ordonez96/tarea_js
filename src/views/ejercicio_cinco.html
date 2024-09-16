@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordoñez Vasquez</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<script src="../js/scripts.js"></script>
+<body>
+        <div class="contenido">
+        <h1>Precio Vehículo</h1> 
+        <form action="">
+            <div class="datos">
+                <p>Ingrese los Datos del Vehículo</p>
+                <input id="id_precio"type="text" placeholder="Ingrese el Precio" required>
+                <select required id="id_categoria">
+                    <option value="" disabled selected>Seleccione un Vehículo</option>
+                    <option value="FORD FIESTA">FORD FIESTA</option>
+                    <option value="FORD FOCUS">FORD FOCUS</option>
+                    <option value="FORD ESCAPE">FORD ESCAPE</option>
+                </select>
+                <label id="descuentos" for="">Selecciona un modelo para ver su descuento</label>
+                <button type="submit" onclick="calcularPrecio()">Aceptar</button>
+                <button onclick="window.location.href='../../menu.html'">Menu Principal</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+    <footer>
+        <p>Ordoñez Vasquez. Todos los derechos reservados. 2024</p>
+    </footer>
+</html>

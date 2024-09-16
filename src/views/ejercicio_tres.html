@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordoñez Vasquez</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<script src="../js/scripts.js"></script>
+<body>
+        <div class="contenido">
+        <h1>Aumento de Salario</h1> 
+        <form action="">
+            <div class="datos">
+                <p>Ingrese Datos del Empleado</p>
+                <input id="id_nombre"type="text" placeholder="Ingrese el Nombre" required>
+                <input id="id_salario"type="text" placeholder="Ingrese el Salario" required>
+                <select required id="id_categoria">
+                    <option value="" disabled selected>Seleccione una Categoría</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+
+                </select>
+                <button type="submit" onclick="calcularAumento()">Aceptar</button>
+                <button onclick="window.location.href='../../menu.html'">Menu Principal</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+    <footer>
+        <p>Ordoñez Vasquez. Todos los derechos reservados. 2024</p>
+    </footer>
+</html>

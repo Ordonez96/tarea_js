@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordoñez Vasquez</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<script src="../js/scripts.js"></script>
+<body>
+        <div class="contenido">
+        <h1>Promedio de Notas</h1> 
+        <form action="">
+            <div class="datos">
+                <p>Ingrese los datos del Estudiante</p>
+                <input id="id_nombre"  pattern="[A-Za-z\s]+" type="text" placeholder="Ingrese el nombre del Estudiante" required>
+                <input id="id_carnet" type="text" placeholder="Ingrese el carnet" required>
+                <input id="id_examen" type="text" placeholder="Ingrese la nota del examen" required>
+                <input id="id_tareas" type="text" placeholder="Ingrese la nota de tareas" required>
+                <input id="id_asistencia" type="text" placeholder="Ingrese la nota de asistencia" required>
+                <input id="id_investigacion" type="text" placeholder="Ingrese la nota de investigacion" required>
+
+                <button type="submit" onclick="promedioNotas()">Aceptar</button>
+                <button onclick="window.location.href='../../menu.html'">Menu Principal</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+    <footer>
+        <p>Ordoñez Vasquez. Todos los derechos reservados. 2024</p>
+    </footer>
+</html>
