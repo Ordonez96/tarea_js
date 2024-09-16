@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let descuento = 0;
         let precioFinal = 0;
 
-        if (isNaN(precio) || precio <= 0) {
+        if (isNaN(precio) || precio <= 0) { 
             alert('Ingresa un precio válido');
             return;
         }
@@ -187,3 +187,24 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(`El coche seleccionado es un ${categoría}\nCon precio de $${precio}\nTiene un descuento de $${descuentoFinal}\nEl precio final con descuento es $${precioFinal}`);
     }
 });
+
+
+
+/*
+EJERCICIO 8:
+Escriba un programa que muestre la tabla de multiplicar del 1 al 10 del número ingresado
+por el usuario.
+*/
+
+function tablaNum(){
+    let num = parseInt(document.getElementById('id_num').value);
+    let result = '';
+    if (isNaN(num) || num <= 0) {
+        alert('Ingresa un número entero positivo.');
+        return;
+    }
+    for (let i = 1; i <= 10; i++) {
+        result += `${num} x ${i} = ${num * i}\n`;
+    }
+    alert(result);
+}
