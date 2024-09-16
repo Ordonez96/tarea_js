@@ -9,12 +9,22 @@
 <script src="../js/scripts.js"></script>
 <body>
         <div class="contenido">
-        <h1>Tabla de multiplicar de un Número</h1> 
+        <h1>Destinos Turísticos</h1> 
         <form action="">
             <div class="datos">
-                <p>Ingrese un Número</p>
-                <input id="id_num"type="text" placeholder="Ingrese un Número" required>
-                <button type="submit" onclick="tablaNum()">Aceptar</button>
+                <p>Selecione su Salida y destino</p>
+                <select required id="id_salida">
+                    <option value="" disabled selected>Seleccione Lugar de Salida</option>
+                    <option value="FORD FIESTA">Ciudad de Palma</option>
+                </select>
+                <select required id="id_destino">
+                    <option value="" disabled selected>Seleccione Lugar de Destino</option>
+                    <option value="COSTA DEL SOL">COSTA DEL SOL</option>
+                    <option value="PANCHIMALCO">PANCHIMALCO</option>
+                    <option value="PUERTO EL TRIUNFO">PUERTO EL TRIUNFO</option>
+                </select>
+                <label id="descuentos_d" for="">Selecciona un destino para ver su descuento</label>
+                <button type="submit" onclick="calcularDescuento()">Aceptar</button>
                 <button onclick="window.location.href='../../menu.html'">Menu Principal</button>
             </div>
         </form>

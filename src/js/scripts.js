@@ -188,6 +188,78 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+/*
+EJERCICIO 6: Crear una Función para calcular el descuento en viajes turísticos tomando
+en cuenta lo siguiente:
+Si el usuario introduce como origen la ciudad de Palma y como destino La costa del Sol, el
+descuento será de 5%, si el destino es Panchimalco el descuento será del 10% y si el destino
+es Puerto el Triunfo el descuento será del 15%.
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('id_destino').addEventListener('change', labelDestino);
+
+    function labelDestino() {
+        const categoría_select = document.getElementById('id_destino').value;
+        const descuento_label = document.getElementById('descuentos_d');
+        let descuentoTexto = '';
+
+        switch(categoría_select) {
+            case 'COSTA DEL SOL':
+                descuentoTexto = '5% de descuento';
+                break;
+            case 'PANCHIMALCO':
+                descuentoTexto = '10% de descuento';
+                break;
+            case 'PUERTO EL TRIUNFO':
+                descuentoTexto = '15% de descuento';
+                break;
+            default:
+                descuentoTexto = 'Selecciona una categoría para ver el descuento';
+        }
+
+        descuento_label.textContent = descuentoTexto;
+    }
+});
+
+/*
+EJERCICIO 7:
+Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+• La cantidad de valores negativos ingresados.
+• La cantidad de valores positivos ingresados.
+• La cantidad de múltiplos de 15.
+• El valor acumulado de los números ingresados que son pares.
+*/
+
+function validarNumeros() {
+    const num = document.getElementById('id_numeros').value;
+    const numeros = num.split(',').map(num => parseInt(num.trim(), 10));
+    let negativos = 0;
+    let positivos = 0;
+    let multiplos = 0;
+    let sumaPares = 0;
+
+    if (numeros.length !== 10) {
+        alert('Por favor, ingrese exactamente 10 números.');
+        return;
+    }
+
+    for (const numero of numeros) {
+        if (numero < 0) {
+            negativos++;
+        } else if (numero > 0) {
+            positivos++;
+        }
+        if (numero % 15 === 0) {
+            multiplos++;
+        }
+        if (numero % 2 === 0) {
+            sumaPares += numero;
+        }
+    }
+
+    alert(`Valores negativos: ${negativos}\nValores positivos: ${positivos}\nMúltiplos de 15: ${multiplos}\nSuma pares: ${sumaPares}`);
+}
 
 
 /*
@@ -208,3 +280,14 @@ function tablaNum(){
     }
     alert(result);
 }
+
+/*
+EJERCICIO 9:
+Crear programa donde se introduce una temperatura en Celsius y salga el resultado en
+Fahrenheit, una vez teniendo la temperatura en Fahrenheit deberá devolver lo siguiente:
+• Si ºF está entre 14 y 32, sale la frase “Temperatura baja”
+• Si ºF está entre 32 y 68, sale la frase “Temperatura adecuada”
+• Si ºF está entre 68 y 96, sale la frase “Temperatura alta”
+• Si no está entre ningún caso anterior la frase “Temperatura desconocida”
+
+*/
