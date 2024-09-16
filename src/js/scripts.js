@@ -63,7 +63,7 @@ CATEGORIA AUMENTO
     C 10%
     D 20%
 Calcular el aumento de trabajador tomando en cuenta la tabla de categorías de aumento.
-Para este ejercicio deberá de asignar las siguientes variables: nombre, salario, categoría y
+Para este ejercicio deberá de asignar las siguientes letiables: nombre, salario, categoría y
 aumento. Deberá demostrar los datos del empleado y el aumento salarial.
 */
 
@@ -291,3 +291,75 @@ Fahrenheit, una vez teniendo la temperatura en Fahrenheit deberá devolver lo si
 • Si no está entre ningún caso anterior la frase “Temperatura desconocida”
 
 */
+
+function validartemperatura() {
+    let celsius = parseFloat(document.getElementById('id_celsius').value);
+    let mensaje;
+    if (isNaN(celsius)) {
+        alert('Ingrese una Temperatura válida');
+        return;
+    }
+    let fahrenheit = (celsius * 9/5) + 32;
+    if (fahrenheit >= 14 && fahrenheit < 32) {
+        mensaje = "Temperatura baja";
+    } else if (fahrenheit >= 32 && fahrenheit < 68) {
+        mensaje = "Temperatura adecuada";
+    } else if (fahrenheit >= 68 && fahrenheit < 96) {
+        mensaje = "Temperatura alta";
+    } else {
+        mensaje = "Temperatura desconocida";
+    }
+    alert(mensaje);
+}
+
+/*
+EJERCICIO 10:
+Se cuenta con la siguiente información:
+• Las edades de 5 estudiantes del turno mañana.
+• Las edades de 6 estudiantes del turno tarde.
+• Las edades de 11 estudiantes del turno noche.
+Nota: Las edades de cada estudiante se deberán ingresar por la web.
+Lo que queremos devolver:
+• Obtener el promedio de las edades de cada turno (tres promedios).
+• Imprimir dichos promedios (promedio de cada turno).
+• Mostrar por pantalla un mensaje que indique cuál de los tres turnos tiene un
+promedio de edades mayor.
+*/
+
+function validarEdades() {
+    let mensaje;
+    let edadesManana = document.getElementById('id_edades_manana').value.split(',').map(Number);
+    let edadesTarde = document.getElementById('id_edades_tarde').value.split(',').map(Number);
+    let edadesNoche = document.getElementById('id_edades_noche').value.split(',').map(Number);
+    
+    if (edadesManana.length !== 5 || edadesTarde.length !== 6 || edadesNoche.length !== 11) {
+        alert('Ingrese la cantidad solicitada de edades para cada turno');
+        return;
+    }
+    
+    let promedioManana = calcularPromedio(edadesManana);
+    let promedioTarde = calcularPromedio(edadesTarde);
+    let promedioNoche = calcularPromedio(edadesNoche);
+    
+    if (promedioManana > promedioTarde && promedioManana > promedioNoche) {
+        mensaje = 'El turno de la Mañana posee el promedio mas alto.';
+    } else if (promedioTarde > promedioManana && promedioTarde > promedioNoche) {
+        mensaje = 'El turno de la Tarde posee el promedio mas alto.';
+    } else if (promedioNoche > promedioManana && promedioNoche > promedioTarde) {
+        mensaje = 'El turno de la Noche posee el promedio mas alto.';
+    } else {
+        mensaje = 'Hay promedios de edad iguales';
+    }
+    alert(
+        `Promedio de edades TM: ${promedioManana.toFixed(2)}\n` +
+        `Promedio de edades TT: ${promedioTarde.toFixed(2)}\n` +
+        `Promedio de edades TN: ${promedioNoche.toFixed(2)}\n\n` +
+        mensaje
+    );
+}
+function calcularPromedio(edades) {
+    let suma = edades.reduce(function(a, b) {
+        return a + b;
+    }, 0);
+    return suma / edades.length;
+}
